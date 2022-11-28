@@ -1,34 +1,5 @@
-import mongoose from "mongoose"
+import { db } from "../Firebase"
 
-interface ITodo {
-  title: string
-  description: string
+exports.verbs = async (req, res) => {
+  const verbsRef = db.collection()
 }
-
-interface TodoModelInterface extends mongoose.Model<TodoDoc> {
-  build(attr: ITodo): TodoDoc
-}
-
-interface TodoDoc extends mongoose.Document {
-  title: string
-  description: string
-}
-
-const todoSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  }
-})
-
-todoSchema.statics.build = (attr: ITodo) => {
-  return new Todo(attr)
-}
-
-const Todo = mongoose.model<TodoDoc, TodoModelInterface>("Todo", todoSchema)
-
-export { Todo }
