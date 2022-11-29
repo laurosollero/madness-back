@@ -22,6 +22,8 @@ The difficulty could actually be fed according to the answers of real life usage
 
 We should save the translated value on the database so as to improve the speed and not having to rely on external system that should, in theory, always return the same value if the requisition is the same.
 
+Better security handling the calls, we should implement a token to authorize the communications with the frontend.
+
 ## How long it took for you to build this application
 
 More than I would like to say, but on time for the requirement of the project. 😅
