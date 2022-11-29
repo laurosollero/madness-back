@@ -1,13 +1,22 @@
 import express from "express"
 import cors from "cors"
 import { json } from "body-parser"
-import { todoRouter } from "./routes/todo"
+import { wordRouter } from "Routes/Word"
+import connect from "./Mongo"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const app = express()
+
 app.use(json())
 app.use(cors())
-app.use(todoRouter)
+app.use(wordRouter)
 
-app.listen(3000, () => {
-  console.log("server is listening on 3000")
+connect()
+
+const port: string = process.env.PORT as string
+
+app.listen(port, () => {
+  console.log(`Server is listening on ${port}`)
 })
